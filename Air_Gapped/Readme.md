@@ -23,11 +23,12 @@ The installation involves two servers: the caching server and the air-gapped ser
 ### Caching Server Setup:
 
 1. Install the appropriate OS on the caching server.
-2. Install the Carbon Black EDR License RPM:
-
+2.Download the scripts:
     ```bash
     git clone https://github.com/orscohen/Carbon-Black-EDR/tree/main/Air_Gapped
     ```
+
+3. Install the Carbon Black EDR License RPM:
 
     ```bash
     rpm -ivh <license-rpm-file>
