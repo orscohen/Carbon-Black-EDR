@@ -6,14 +6,21 @@ The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
 that will break the installation.
 ### Updates
-Do not install any other software & Make an update to the cache server - it is supposed to be exactly like the air-gapped server
+Do not install any other software & Make an update to the cache server - 
+
+it is supposed to be exactly like the air-gapped server
+
 you can use the following on the Cache server:
+
     ```bash
 sudo yum update  --downloadonly --downloaddir="/tmp/updates"
     ```
 Move all the updates to the air-gapped server
+
  in folder /tmp/updates,
+ 
  then install them with:
+ 
     ```bash
     rpm -ivh /tmp/updates/*.rpm
     ```
