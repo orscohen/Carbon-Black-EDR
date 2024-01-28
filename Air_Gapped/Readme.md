@@ -5,28 +5,6 @@ This guide is intended for users who were unable to successfully install Carbon 
 The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
 that will break the installation.
-### Updates
-Do not install any other software & Make an update to the cache server - 
-
-it is supposed to be exactly like the air-gapped server
-
-you can use the following on the Cache server:
-
-
-```bash
-mkdir -p /tmp/updates
-sudo yum update --downloadonly --downloaddir="/tmp/updates"
-```  
-Move all the updates to the air-gapped server
-
- in folder /tmp/updates,
- 
- then install them with:
- 
-```bash
-rpm -ivh /tmp/updates/*.rpm
-```
-
 
 ## Environment
 - EDR Server: 7.x+
@@ -80,6 +58,29 @@ Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to
     ```
 
     Repeat the process for any other duplicated versions, such as `openssl-1.0.2k-22.el7_9.x86_64.rpm`.
+   ## OS Updates
+Do not install any other software & Make an update to the cache server - 
+
+it is supposed to be exactly like the air-gapped server
+
+you can use the following on the Cache server:
+
+
+```bash
+mkdir -p /tmp/updates
+sudo yum update --downloadonly --downloaddir="/tmp/updates"
+```  
+Move all the updates to the air-gapped server
+
+ in folder /tmp/updates,
+ 
+ then install them with:
+ 
+```bash
+rpm -ivh /tmp/updates/*.rpm
+```
+
+
 
 **Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
 
