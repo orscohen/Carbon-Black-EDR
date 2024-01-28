@@ -1,7 +1,6 @@
 # Carbon Black EDR Offline Air-Gapped Server Installation Guide
 
-This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. <be>
-The instructions have been tested on CentOS 7 (version 2009).
+This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. <be>The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
 that will break the installation.
 ### Updates
