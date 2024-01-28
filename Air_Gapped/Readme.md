@@ -1,7 +1,9 @@
 # Carbon Black EDR Offline Air-Gapped Server Installation Guide
 
 This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. 
+**Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
 
+**Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
 The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
 that will break the installation.
@@ -79,9 +81,3 @@ Move all the updates to the air-gapped server
 ```bash
 rpm -ivh /tmp/updates/*.rpm
 ```
-
-
-
-**Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
-
-**Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
