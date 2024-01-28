@@ -13,8 +13,9 @@ it is supposed to be exactly like the air-gapped server
 you can use the following on the Cache server:
 
     ```bash
-sudo yum update  --downloadonly --downloaddir="/tmp/updates"
+    sudo yum update  --downloadonly --downloaddir="/tmp/updates"
     ```
+    
 Move all the updates to the air-gapped server
 
  in folder /tmp/updates,
