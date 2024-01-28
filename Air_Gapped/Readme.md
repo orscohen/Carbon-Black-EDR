@@ -14,6 +14,7 @@ you can use the following on the Cache server:
 
 
 ```bash
+mkdir -p /tmp/updates
 sudo yum update  --downloadonly --downloaddir="/tmp/updates"
 ```  
 Move all the updates to the air-gapped server
