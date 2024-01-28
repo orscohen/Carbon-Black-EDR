@@ -9,9 +9,9 @@ you can use the following on the Cache server:
     ```bash
 sudo yum update  --downloadonly --downloaddir="/tmp/updates"
     ```
-> Move all the updates to the air-gapped server
->  in folder /tmp/updates,
-> then install them with:
+Move all the updates to the air-gapped server
+ in folder /tmp/updates,
+ then install them with:
     ```bash
     rpm -ivh /tmp/updates/*.rpm
     ```
