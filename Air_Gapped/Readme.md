@@ -1,40 +1,55 @@
-use only if https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493 did not work for you
-tested on Centos 7 2009
+# Carbon Black EDR Offline Air-Gapped Server Installation Guide
 
-EDR: How to Perform an Offline Air-Gapped Server Installation 
-Environment
-•	EDR Server: 7.x+
-•	Linux: All Supported Versions
+This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. The instructions have been tested on CentOS 7 (version 2009).
 
-Objective
-To install EDR server onto Air-Gapped Linux servers that do not have access to the public internet. 
-Resolution
-The caching server is a Linux server that connects to the Internet to collect the RPM packages necessary to perform an EDR install.  It does not need to meet the Operating Environment Requirements (OER).
-The air-gapped server is the production Linux server that does not connect to the Internet.  It must meet OER sizing guides.
-Note: The caching server needs to match the OS and kernel version of the air-gapped server.
-Note: These steps are for a new installation only.  Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
-Configure the Caching Server:
+## Environment
+- EDR Server: 7.x+
+- Linux: All Supported Versions
 
+## Objective
+Install the EDR server on air-gapped Linux servers that lack internet access.
 
-**caching server:**
-1.	Install the appropriate OS on the caching server.
-2.	Install the Carbon Black EDR License RPM.  
-rpm -ivh <carbon-black-release-file>
+## Resolution
+The installation involves two servers: the caching server and the air-gapped server.
 
-**download and use the following script on the cache server:**
-chmod +x create-cache.sh
-sudo ./create-cache.sh
+### Caching Server Setup:
 
-after running the script you will see all RPMs created in the /tmp/cb
+1. Install the appropriate OS on the caching server.
+2. Install the Carbon Black EDR License RPM:
 
-**Transfer Files:**
-•	Transfer the entire /tmp/cb directory, which contains the downloaded RPM files, to the air-gapped machine. You can use a USB drive, network transfer, or any other secure method.
+    ```bash
+    rpm -ivh <license-rpm-file>
+    ```
 
-**Air gapped server:**
-chmod +x air-gapped.sh
-sudo ./air-gapped.sh
+3. Download and execute the script on the caching server:
 
-NOTE:if you are receiving an error about- 
-Protected multilib versions: sysstat-10.1.5-19.el7.x86_64 != sysstat-10.1.5-20.el7_9.x86_64”
-remove the older rpm version for example rm /tmp/cb/sysstat-10.1.519.el7.x86_64.rpm”
-same for openssl-1.0.2k-22.el7_9.x86_64.rpm or any other duplicated versions.
+    ```bash
+    chmod +x create-cache.sh
+    sudo ./create-cache.sh
+    ```
+
+   The script will generate all RPMs in the `/tmp/cb` directory.
+
+### Transfer Files:
+Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to the air-gapped machine. Use a USB drive, network transfer, or any other secure method.
+
+### Air-Gapped Server Installation:
+
+1. Execute the installation script on the air-gapped server:
+
+    ```bash
+    chmod +x air-gapped.sh
+    sudo ./air-gapped.sh
+    ```
+
+2. **Note:** If you encounter a "Protected multilib versions" error, remove the older RPM version. For example:
+
+    ```bash
+    rm /tmp/cb/sysstat-10.1.5-19.el7.x86_64.rpm
+    ```
+
+    Repeat the process for any other duplicated versions, such as `openssl-1.0.2k-22.el7_9.x86_64.rpm`.
+
+**Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
+
+**Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
