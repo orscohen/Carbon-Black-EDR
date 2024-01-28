@@ -6,11 +6,16 @@ that will break the installation.
 ### Updates
 Do not install any other software & Make an update to the cache server - it is supposed to be exactly like the air-gapped server
 you can use the following on the Cache server:
+    ```bash
 sudo yum update  --downloadonly --downloaddir="/tmp/updates"
+    ```
 > Move all the updates to the air-gapped server
 >  in folder /tmp/updates,
 > then install them with:
-> rpm -ivh /tmp/updates/*.rpm
+    ```bash
+    rpm -ivh /tmp/updates/*.rpm
+    ```
+
 
 ## Environment
 - EDR Server: 7.x+
