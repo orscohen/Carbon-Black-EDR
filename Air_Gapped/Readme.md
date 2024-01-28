@@ -13,18 +13,18 @@ it is supposed to be exactly like the air-gapped server
 you can use the following on the Cache server:
 
 
-    ```bash
+```bash
     sudo yum update  --downloadonly --downloaddir="/tmp/updates"
-    ```  
+```  
 Move all the updates to the air-gapped server
 
  in folder /tmp/updates,
  
  then install them with:
  
-    ```bash
+```bash
     rpm -ivh /tmp/updates/*.rpm
-    ```
+```
 
 
 ## Environment
