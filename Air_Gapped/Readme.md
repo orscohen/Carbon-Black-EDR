@@ -2,6 +2,7 @@
 
 This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. 
 
+Fit  64-bit x86 architecture systems.
 
 **Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
 
