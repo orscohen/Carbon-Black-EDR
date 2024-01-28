@@ -26,10 +26,14 @@ The installation involves two servers: the caching server and the air-gapped ser
 2. Install the Carbon Black EDR License RPM:
 
     ```bash
+    git clone https://github.com/orscohen/Carbon-Black-EDR/tree/main/Air_Gapped
+    ```
+
+    ```bash
     rpm -ivh <license-rpm-file>
     ```
 
-3. Download and execute the script on the caching server:
+4. Download and execute the script on the caching server:
 
     ```bash
     chmod +x create-cache.sh
