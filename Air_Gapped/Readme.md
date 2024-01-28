@@ -9,7 +9,9 @@ Fit  64-bit x86 architecture systems.
 **Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
 The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
-that will break the installation.
+if not- this will break the installation.
+for example  CentOS 7 version 2009 Minimal on the cache server 
+and CentOS 7 version 2009 Minimal on the air-gapped server.
 
 ## Environment
 - EDR Server: 7.x+
