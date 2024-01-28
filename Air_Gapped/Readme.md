@@ -14,7 +14,7 @@ you can use the following on the Cache server:
 
 
 ```bash
-    sudo yum update  --downloadonly --downloaddir="/tmp/updates"
+sudo yum update  --downloadonly --downloaddir="/tmp/updates"
 ```  
 Move all the updates to the air-gapped server
 
@@ -23,7 +23,7 @@ Move all the updates to the air-gapped server
  then install them with:
  
 ```bash
-    rpm -ivh /tmp/updates/*.rpm
+rpm -ivh /tmp/updates/*.rpm
 ```
 
 
