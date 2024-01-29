@@ -16,5 +16,8 @@ sudo yumdownloader --resolve --destdir=/tmp/cb --nogpgcheck --archlist=x86_64 cb
 for dep in $(repoquery --requires --resolve --archlist=x86_64 cb-enterprise); do
     sudo yumdownloader --resolve --destdir=/tmp/cb --nogpgcheck --archlist=x86_64 "$dep"
 done
-# Download createrepo to /tmp/cb 
-sudo yum install --downloadonly --downloaddir="/tmp/cb" createrepo -y
+# Create /tmp/cb/createrepo directory if it doesn't exist
+mkdir -p /tmp/cb/createrepo
+
+# Download createrepo to /tmp/cb/createrepo
+sudo yum install --downloadonly --downloaddir="/tmp/cb/createrepo" createrepo -y
