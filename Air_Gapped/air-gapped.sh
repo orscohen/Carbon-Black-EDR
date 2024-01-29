@@ -48,5 +48,6 @@ fi
 #Remove duplicated rpm with OS – tested with Centos 7
 mv "$REPO_PATH"/sysstat-10.1.5-19.el7.x86_64.rpm /tmp
 mv "$REPO_PATH"/openssl-1.0.2k-22.el7_9.x86_64.rpm /tmp
+mv "$REPO_PATH"/avahi-libs-0.7-21.el8_9.1.x86_64.rpm /tmp
 # Install your package from the local repository,and disable all live repos to work with the offline repo
 sudo yum --disablerepo=* --enablerepo=local install /tmp/cb/*.rpm
