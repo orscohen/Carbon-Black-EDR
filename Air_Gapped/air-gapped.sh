@@ -19,7 +19,7 @@ if ! command -v createrepo &> /dev/null; then
 
     if [ -n "$CREATEREPO_RPM" ]; then
         # Install createrepo and its dependencies from the RPMs
-        sudo yum localinstall -y "$CREATEREPO_RPM" "$REPO_PATH"/deltarpm*.rpm "$REPO_PATH"/python-deltarpm*.rpm
+        sudo yum localinstall -y "$REPO_PATH"/createrepo/*.rpm
     else
         echo "Error: createrepo RPM file not found. Exiting."
         exit 1
