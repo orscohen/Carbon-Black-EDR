@@ -15,7 +15,7 @@ fi
 # Check if createrepo is installed
 if ! command -v createrepo &> /dev/null; then
     # Use find to locate the RPM file
-    CREATEREPO_RPM=$(find "$REPO_PATH" -type f -name 'createrepo*.noarch.rpm' -print -quit)
+    CREATEREPO_RPM=$(find "$REPO_PATH"/createrepo -type f -name 'createrepo*.rpm' -print -quit)
 
     if [ -n "$CREATEREPO_RPM" ]; then
         # Install createrepo and its dependencies from the RPMs
