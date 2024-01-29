@@ -28,7 +28,7 @@ The installation involves two servers: the caching server and the air-gapped ser
 
 1. Install the appropriate OS on the caching server.
    
-2.Download the scripts:
+2. Download the scripts:
     ```bash
     git clone https://github.com/orscohen/Carbon-Black-EDR/tree/main/Air_Gapped
     ```
