@@ -7,6 +7,7 @@ Fit  64-bit x86 architecture systems.
 **Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
 
 **Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
+
 The instructions have been tested on CentOS 7 (version 2009).
 ### Please use the same OS for the cache server & Air gapped:
 if not- this will break the installation.
