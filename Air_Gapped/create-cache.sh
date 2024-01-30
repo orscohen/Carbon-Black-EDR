@@ -7,7 +7,7 @@ mkdir -p /tmp/cb/yum-utils
 if ! command -v yumdownloader &> /dev/null; then
 # Download yum-utils to /tmp/cb/yum-utils
 sudo yum install --downloadonly --downloaddir="/tmp/cb/yum-utils" yum-utils -y
-wait 1
+yum clean all
 sudo yum localinstall -y /tmp/cb/yum-utils/*.rpm
 
 fi
