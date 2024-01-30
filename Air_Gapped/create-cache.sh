@@ -21,7 +21,6 @@ mkdir -p /tmp/cb/createrepo
 # Download createrepo to /tmp/cb/createrepo
 sudo yum install --downloadonly --downloaddir="/tmp/cb/createrepo" createrepo -y
 
-
 # Create /tmp/cb/yum-utils directory if it doesn't exist
 mkdir -p /tmp/cb/yum-utils
 # Download yum-utils to /tmp/cb/yum-utils
