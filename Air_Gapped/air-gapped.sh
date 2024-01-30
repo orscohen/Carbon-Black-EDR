@@ -1,60 +1,69 @@
 #!/bin/bash
 
-#clean all yum repos
-yum clean all
-
-#Folder contains all the RPM's(the path is changeable):
+# Folder containing all the RPMs (the path is changeable):
 REPO_PATH="/tmp/cb"
-#Repo name:
+
+# Repo name:
 REPO_CONFIG="/etc/yum.repos.d/cblocal.repo"
+
 # Check if script is run with sudo
 if [ "$EUID" -ne 0 ]; then
   echo "Please run this script with sudo."
   exit 1
 fi
+
+# Check if createrepo is installed
+if which createrepo >/dev/null; then
+echo 'package create repo already installed'
+else
+        rpm -ivh "$REPO_PATH"/createrepo/*.rpm
+fi
+
+# Fix ownership and permissions for REPO_PATH
+chown -R root.root "$REPO_PATH"
+
 # Check if sudo yum-config-manager is available
-if command -v yum-config-manager &> /dev/null; then
+if which yum-config-manager >/dev/null; then
     echo "yum-config-manager is available."
 else
     echo "yum-config-manager is not available. Installing yum-utils..."
-    sudo yum localinstall -y "$REPO_PATH"/yum-utils/*.rpm
+     rpm -ivh "$REPO_PATH"/yum-utils/*.rpm
 fi
-# Check if createrepo is installed
-if ! command -v createrepo &> /dev/null; then
-    # Use find to locate the RPM file
-    CREATEREPO_RPM=$(find "$REPO_PATH"/createrepo -type f -name 'createrepo*.rpm' -print -quit)
 
-    if [ -n "$CREATEREPO_RPM" ]; then
-        # Install createrepo and its dependencies from the RPMs
-        sudo yum localinstall -y "$REPO_PATH"/createrepo/*.rpm
-    else
-        echo "Error: createrepo RPM file not found. Exiting."
-        exit 1
-    fi
-fi
-# Fix ownership and permissions for /tmp/cb
-sudo chown -R root.root "$REPO_PATH"
+#Disable all repos
+sudo yum-config-manager --disable '*'
+
 
 # Create the repository if it doesn't exist
-if [ ! -d "$REPO_CONFIG" ]; then
-    sudo createrepo "$REPO_PATH"
+if [ ! -d "$REPO_PATH/repodata" ]; then
+    createrepo "$REPO_PATH"
 fi
 
 # Fix permissions for the repository
-sudo chmod -R o-w+r "$REPO_PATH"
+chmod -R o-w+r "$REPO_PATH"
+REPO_CONFIG="/etc/yum.repos.d/cblocal.repo"
 
-
-# Create a repository configuration file if it doesn't exist
+# Check if the repository configuration file exists
 if [ ! -f "$REPO_CONFIG" ]; then
+    # Create the repository configuration file
     echo "[local]
 name=CB Local Repo
-baseurl=file://$REPO_PATH
-enabled=1 
-gpgcheck=0" | sudo tee "$REPO_CONFIG" > /dev/null
+baseurl=file:///$REPO_PATH
+enabled=1
+gpgcheck=0" | tee "$REPO_CONFIG" > /dev/null
+else
+    # Check if 'enabled' is set to 0, change it to 1
+    if grep -q '^enabled=0$' "$REPO_CONFIG"; then
+        sed -i 's/^enabled=0/enabled=1/' "$REPO_CONFIG"
+    fi
 fi
-#Remove duplicated rpm with OS – tested with Centos 7
-mv "$REPO_PATH"/sysstat-10.1.5-19.el7.x86_64.rpm /tmp
-mv "$REPO_PATH"/openssl-1.0.2k-22.el7_9.x86_64.rpm /tmp
-mv "$REPO_PATH"/avahi-libs-0.7-21.el8_9.1.x86_64.rpm /tmp
-# Install your package from the local repository,and disable all live repos to work with the offline repo
-sudo yum --disablerepo=* --enablerepo=local install /tmp/cb/*.rpm
+
+# Enable just the local repo
+sudo yum-config-manager --enable local
+
+# Install from cache
+sudo yum makecache
+sudo yum -C install cb-enterprise
+
+#revert to all repo in enable  and disable the local repo
+#sudo yum-config-manager --disable local --enable \*
