@@ -12,6 +12,13 @@ if [ "$EUID" -ne 0 ]; then
   echo "Please run this script with sudo."
   exit 1
 fi
+# Check if sudo yum-config-manager is available
+if command -v yum-config-manager &> /dev/null; then
+    echo "yum-config-manager is available."
+else
+    echo "yum-config-manager is not available. Installing yum-utils..."
+    sudo yum localinstall -y "$REPO_PATH"/yum-utils/*.rpm
+fi
 # Check if createrepo is installed
 if ! command -v createrepo &> /dev/null; then
     # Use find to locate the RPM file
