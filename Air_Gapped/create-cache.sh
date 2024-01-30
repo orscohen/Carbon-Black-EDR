@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Create /tmp/cb/yum-utils directory if it doesn't exist
+mkdir -p /tmp/cb/yum-utils
+# Download yum-utils to /tmp/cb/yum-utils
+sudo yum install --downloadonly --downloaddir="/tmp/cb/yum-utils" yum-utils -y
+
 # Install yum-utils if not already installed
 if ! command -v yumdownloader &> /dev/null; then
     sudo yum install -y yum-utils
@@ -21,8 +26,5 @@ mkdir -p /tmp/cb/createrepo
 # Download createrepo to /tmp/cb/createrepo
 sudo yum install --downloadonly --downloaddir="/tmp/cb/createrepo" createrepo -y
 
-# Create /tmp/cb/yum-utils directory if it doesn't exist
-mkdir -p /tmp/cb/yum-utils
-# Download yum-utils to /tmp/cb/yum-utils
-sudo yum install --downloadonly --downloaddir="/tmp/cb/yum-utils" yum-utils -y
+
 
