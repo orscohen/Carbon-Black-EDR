@@ -10,7 +10,7 @@ only for 64-bit x86 architecture systems.
 
 
 
-The instructions have been tested on CentOS 7 (version 2009).
+The instructions have been tested on Redhat 8.9
 ### Please use the same OS for the cache server & Air gapped:
 if not- this will break the installation.
 for example  CentOS 7 version 2009 Minimal on the cache server 
