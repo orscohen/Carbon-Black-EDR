@@ -25,4 +25,5 @@ sudo yumdownloader --resolve --destdir=/tmp/cb --nogpgcheck --archlist=x86_64 cb
 for dep in $(repoquery --requires --resolve --archlist=x86_64 cb-enterprise); do
     sudo yumdownloader --resolve --destdir=/tmp/cb --nogpgcheck --archlist=x86_64 "$dep"
 done
+echo "Throughout the script, you'll notice many packages are skipped or already downloaded. That's completely fine."
 
