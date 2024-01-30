@@ -50,7 +50,8 @@ if [ ! -f "$REPO_CONFIG" ]; then
 name=CB Local Repo
 baseurl=file:///$REPO_PATH
 enabled=1
-gpgcheck=0" | tee "$REPO_CONFIG" > /dev/null
+gpgcheck=0
+module_hotfixes=true"| tee "$REPO_CONFIG" > /dev/null
 else
     # Check if 'enabled' is set to 0, change it to 1
     if grep -q '^enabled=0$' "$REPO_CONFIG"; then
