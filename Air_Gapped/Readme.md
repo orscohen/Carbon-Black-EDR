@@ -61,6 +61,9 @@ Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to
     sudo ./air-gapped.sh
     ```
 
+### Notice
+
+part of the installation requires external packages, 'yum-utils' & 'createrepo' | that are embedded in the script.
 
    ## OS Updates
 Do not install any other software & Make an update to the cache server - 
