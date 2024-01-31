@@ -68,5 +68,25 @@ sudo yum -C install cb-enterprise
 
 #revert to all repo in enable  and disable the local repo
 #sudo yum-config-manager --disable local --enable \*
+
 echo "To clean all rpms from the cache and the tmp file do:"
 echo "rm -rf /tmp/cb"
+echo "To run the installer - run: /usr/share/cb/cbinit"
+# To run the CB EDR services, please use:
+# systemctl start cb-enterprise
+# or use:
+# /usr/share/cb/cbservice cb-supervisord start
+# /usr/share/cb/cbservice cb-pgsql start
+# /usr/share/cb/cbservice cb-datagrid start
+# /usr/share/cb/cbservice cb-redis start
+# /usr/share/cb/cbservice cb-rabbitmq start
+# /usr/share/cb/cbservice cb-solr start
+# /usr/share/cb/cbservice cb-coreservices start
+# /usr/share/cb/cbservice cb-sensorservices start
+# /usr/share/cb/cbservice cb-datastore start
+# /usr/share/cb/cbservice cb-liveresponse start
+# /usr/share/cb/cbservice cb-allianceclient start
+# /usr/share/cb/cbservice cb-enterprised start
+# /usr/share/cb/cbservice cb-nginx start
+
+
