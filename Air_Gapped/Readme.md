@@ -1,13 +1,12 @@
 # Carbon Black EDR Offline Air-Gapped Server Installation Guide
 
-This guide is intended for users who were unable to successfully install Carbon Black EDR using the standard online installation method. 
+This guide is intended for users who were unable to successfully install Carbon Black EDR on an air-gapped environment.
+And only for 64-bit x86 architecture systems.
 
 **Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
 
-only for 64-bit x86 architecture systems.
 
 **Important:** These steps are for new installations only. Using these instructions for updating EDR can result in the loss of all data, configurations, and certificates.
-
 
 
 The instructions have been tested on Redhat 8.9
@@ -62,13 +61,7 @@ Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to
     sudo ./air-gapped.sh
     ```
 
-2. **Note:** If you encounter a "Protected multilib versions" error, remove the older RPM version. For example:
 
-    ```bash
-    rm /tmp/cb/sysstat-10.1.5-19.el7.x86_64.rpm
-    ```
-
-    Repeat the process for any other duplicated versions, such as `openssl-1.0.2k-22.el7_9.x86_64.rpm`.
    ## OS Updates
 Do not install any other software & Make an update to the cache server - 
 
