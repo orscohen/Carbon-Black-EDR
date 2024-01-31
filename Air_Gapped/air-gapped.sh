@@ -68,3 +68,5 @@ sudo yum -C install cb-enterprise
 
 #revert to all repo in enable  and disable the local repo
 #sudo yum-config-manager --disable local --enable \*
+echo "To clean all rpms from the cache and the tmp file do:"
+echo "rm -rf /tmp/cb"
