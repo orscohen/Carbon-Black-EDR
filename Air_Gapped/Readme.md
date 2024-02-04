@@ -15,6 +15,7 @@ if not- this will break the installation.
 for example  CentOS 7 version 2009 Minimal on the cache server 
 and CentOS 7 version 2009 Minimal on the air-gapped server.
 
+it's a wise approach to avoid installing any software on the air-gapped system that doesn't exist on the air-gapped environment as well. Doing so could potentially lead to missing dependencies
 ## Environment
 - EDR Server: 7.x+
 - Linux: All Supported Versions
