@@ -50,7 +50,9 @@ The installation involves two servers: the caching server and the air-gapped ser
    The script will generate all RPMs in the `/tmp/cb` directory.
 
 ### Transfer Files:
-Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to the air-gapped machine. Use a USB drive, network transfer, or any other secure method.
+Transfer the entire `/tmp/cb` directory (containing the downloaded RPM files) to the air-gapped machine. 
+
+Use a USB drive, network transfer, or any other secure method.
 
 ### Air-Gapped Server Installation:
 
