@@ -1,4 +1,16 @@
 #!/bin/bash
+#
+#   ___          ___      _                
+#  /___\_ __    / __\___ | |__   ___ _ __  
+# //  // '__|  / /  / _ \| '_ \ / _ \ '_ \ 
+#/ \_//| |    / /__| (_) | | | |  __/ | | |
+#\___/ |_|    \____/\___/|_| |_|\___|_| |_|
+#
+# Script Name: air-gapped.sh
+# Description: Script to Install the cached rpms from the Cache Server on the Air-Gapped Environment
+# Author: Or Cohen
+# Role: SE in EMEA for Carbon Black
+
 
 # Folder containing all the RPMs (the path is changeable):
 REPO_PATH="/tmp/cb"
