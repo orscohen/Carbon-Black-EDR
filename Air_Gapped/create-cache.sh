@@ -1,4 +1,15 @@
 #!/bin/bash
+#
+#   ___          ___      _                
+#  /___\_ __    / __\___ | |__   ___ _ __  
+# //  // '__|  / /  / _ \| '_ \ / _ \ '_ \ 
+#/ \_//| |    / /__| (_) | | | |  __/ | | |
+#\___/ |_|    \____/\___/|_| |_|\___|_| |_|
+#
+# Script Name: create-cache.sh
+# Description: Script for setting up a caching server with internet connectivity.
+# Author: Or Cohen
+# Role: SE in EMEA for Carbon Black
 
 #yum-utils
 # Create /tmp/cb/yum-utils directory if it doesn't exist
