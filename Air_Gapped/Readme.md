@@ -57,7 +57,14 @@ Use a USB drive, network transfer, or any other secure method.
 
 ### Air-Gapped Server Installation:
 
-1. Execute the installation script on the air-gapped server:
+1. Install the Carbon Black EDR License RPM:
+
+    ```bash
+    rpm -ivh <license-rpm-file>
+    ```
+
+
+2. Execute the installation script on the air-gapped server:
 
     ```bash
     chmod +x air-gapped.sh
