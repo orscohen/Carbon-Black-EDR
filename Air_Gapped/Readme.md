@@ -1,10 +1,11 @@
 <h1 align="center">
     <img src="https://avatars.githubusercontent.com/u/2071378?s=200&v=4" alt="Script Icon" width="200">
-Carbon Black EDR Offline Air-Gapped Server Installation Guide
+
+    Carbon Black EDR Offline Air-Gapped Server Installation Guide
     <br>
 
-##This guide is intended for users who were unable to successfully install Carbon Black EDR on an air-gapped environment.
-And only for 64-bit x86 architecture systems.
+**This guide is intended for users who were unable to successfully install Carbon Black EDR on an air-gapped environment.
+And only for 64-bit x86 architecture systems.**
 
 **Refer to the [official Carbon Black Community Knowledge Base](https://community.carbonblack.com/t5/Knowledge-Base/EDR-How-to-Perform-an-Offline-Air-Gapped-Server-Installation/ta-p/92493) for additional details.**
 
