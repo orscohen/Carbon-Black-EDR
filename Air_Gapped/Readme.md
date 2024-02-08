@@ -1,3 +1,6 @@
+<h1 align="center">
+    <img src="https://avatars.githubusercontent.com/u/2071378?s=200&v=4" alt="Script Icon" width="200">
+    <br>
 # Carbon Black EDR Offline Air-Gapped Server Installation Guide
 
 This guide is intended for users who were unable to successfully install Carbon Black EDR on an air-gapped environment.
